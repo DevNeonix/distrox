@@ -3,8 +3,14 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {}
+      "files": ["*.ts", "*.mts", "*.tsx", "*.js", "*.jsx"],
+      "extends": [
+        "../../node_modules/eslint-angular-devneonix/index.js"
+      ],
+      "rules": {},
+      "parserOptions": {
+        "project": ["packages/backend/tsconfig.app.json"]
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],

@@ -23,12 +23,7 @@
           }
         ],
         "styles": ["packages/frontend/src/styles.scss"],
-        "scripts": [],
-        "server": "packages/frontend/src/main.server.ts",
-        "prerender": true,
-        "ssr": {
-          "entry": "packages/frontend/server.ts"
-        }
+        "scripts": []
       },
       "configurations": {
         "production": {
@@ -44,12 +39,24 @@
               "maximumError": "4kb"
             }
           ],
+          "fileReplacements": [
+            {
+              "replace": "packages/frontend/src/environments/environment.ts",
+              "with": "packages/frontend/src/environments/environment.production.ts"
+            }
+          ],
           "outputHashing": "all"
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "packages/frontend/src/environments/environment.ts",
+              "with": "packages/frontend/src/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

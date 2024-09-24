@@ -6,30 +6,29 @@
       "files": ["*.ts"],
       "extends": [
         "plugin:@nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "../../node_modules/eslint-angular-devneonix/rules/base",
+        "../../node_modules/eslint-angular-devneonix/rules/prefer-arrow",
+        "../../node_modules/eslint-angular-devneonix/rules/regex",
+        "../../node_modules/eslint-angular-devneonix/rules/typescript",
+        "../../node_modules/eslint-angular-devneonix/rules/angular",
+        "../../node_modules/eslint-angular-devneonix/rules/deprecation",
+        "../../node_modules/eslint-angular-devneonix/rules/jsdoc",
+        "../../node_modules/eslint-angular-devneonix/rules/rxjs",
+        "../../node_modules/eslint-angular-devneonix/rules/ngrx"
       ],
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ]
+      },
+      "parserOptions": {
+        "project": ["packages/frontend/tsconfig.app.json"]
       }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nx/angular-template"],
+      "extends": [
+        "plugin:@nx/angular-template",
+        "../../node_modules/eslint-angular-devneonix/rules/html"
+      ],
       "rules": {}
     }
   ]
